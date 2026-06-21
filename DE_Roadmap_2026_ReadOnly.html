@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<title>Data Engineering Roadmap 2026 — Windows Setup</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#0d1117;color:#e6edf3;font-family:system-ui,sans-serif;padding:24px;line-height:1.5}.header{text-align:center;margin-bottom:20px;padding:20px;background:linear-gradient(135deg,#161b22,#1c2432);border:1px solid #30363d;border-radius:12px}.header h1{font-size:26px;background:linear-gradient(90deg,#58a6ff,#a371f7,#3fb950);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}.header p{color:#8b949e;font-size:13px}.badge-row{margin-bottom:10px}.badge-row span{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:4px;margin:0 3px}.live-badge{background:#da3633;color:#fff}.os-badge{background:#0078d4;color:#fff}.toolbar{display:flex;justify-content:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}.toolbar button{padding:9px 18px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all .15s}#editBtn{background:#21262d;border:1px solid #a371f7;color:#a371f7}#editBtn:hover,#editBtn.active{background:#a371f7;color:#fff}#saveBtn{background:#21262d;border:1px solid #58a6ff;color:#58a6ff}#saveBtn:hover{background:#58a6ff;color:#000}#resetBtn{background:#21262d;border:1px solid #da3633;color:#da3633}#resetBtn:hover{background:#da3633;color:#fff}#exportBtn{background:#21262d;border:1px solid #238636;color:#3fb950}#exportBtn:hover{background:#238636;color:#fff}.edit-banner{display:none;text-align:center;margin-bottom:12px;padding:8px;background:#a371f718;border:1px dashed #a371f7;border-radius:8px;font-size:12px;color:#d2a8ff}.edit-banner.show{display:block}.toast{display:none;position:fixed;top:20px;left:50%;transform:translateX(-50%);padding:10px 24px;border-radius:8px;font-size:13px;font-weight:600;z-index:9999}.toast.show{display:block;animation:pop .3s ease}.toast.green{background:#238636;color:#fff}@keyframes pop{from{opacity:0;transform:translateX(-50%) translateY(-10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}.autosave-status{text-align:center;margin-bottom:12px;font-size:11px;color:#3fb950}input[name="tabs"]{display:none}.tab-bar{display:flex;gap:5px;margin-bottom:20px;flex-wrap:wrap;justify-content:center}.tab-bar label{padding:9px 14px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:600;color:#8b949e;display:flex;align-items:center;gap:5px;transition:all .2s}.tab-bar label:hover{transform:translateY(-2px)}.tab-bar .n{width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}label[for="t0"]{background:#1a1a2e;border:1px solid #a371f7}label[for="t0"] .n{background:#a371f7;color:#fff}label[for="t1"]{background:#1a2332;border:1px solid #336791}label[for="t1"] .n{background:#336791;color:#fff}label[for="t2"]{background:#1a2520;border:1px solid #3776ab}label[for="t2"] .n{background:#ffd43b;color:#000}label[for="t3"]{background:#1f1f14;border:1px solid #ffc107}label[for="t3"] .n{background:#ffc107;color:#000}label[for="t4"]{background:#141c2e;border:1px solid #58a6ff}label[for="t4"] .n{background:#58a6ff;color:#000}label[for="t5"]{background:#1f1a10;border:1px solid #ff9900}label[for="t5"] .n{background:#ff9900;color:#000}label[for="t6"]{background:#1f1410;border:1px solid #e25711}label[for="t6"] .n{background:#e25711;color:#fff}#t0:checked~.tab-bar label[for="t0"]{background:#a371f7;color:#fff}#t1:checked~.tab-bar label[for="t1"]{background:#336791;color:#fff}#t2:checked~.tab-bar label[for="t2"]{background:#3776ab;color:#fff}#t3:checked~.tab-bar label[for="t3"]{background:#ffc107;color:#000}#t4:checked~.tab-bar label[for="t4"]{background:#58a6ff;color:#000}#t5:checked~.tab-bar label[for="t5"]{background:#ff9900;color:#000}#t6:checked~.tab-bar label[for="t6"]{background:#e25711;color:#fff}.panel{display:none;background:#161b22;border:1px solid #30363d;border-radius:12px;padding:24px}#t0:checked~.panels .p0,#t1:checked~.panels .p1,#t2:checked~.panels .p2,#t3:checked~.panels .p3,#t4:checked~.panels .p4,#t5:checked~.panels .p5,#t6:checked~.panels .p6{display:block}.stg-hdr{display:flex;align-items:center;gap:14px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid #30363d}.stg-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px}.stg-title{font-size:20px;font-weight:600}.stg-desc{color:#8b949e;font-size:12px;margin-top:2px}.stg-lbl{font-size:10px;color:#3fb950;font-weight:600;text-transform:uppercase;letter-spacing:.08em}.sec-title{font-size:13px;font-weight:600;color:#58a6ff;text-transform:uppercase;letter-spacing:.05em;margin:18px 0 10px}.code-wrap{position:relative;margin-bottom:14px}.copy-btn{position:absolute;top:8px;right:8px;background:#30363d;border:1px solid #484f58;color:#8b949e;padding:4px 9px;border-radius:5px;font-size:11px;cursor:pointer;z-index:5}.copy-btn:hover{background:#484f58;color:#e6edf3}.copy-btn.ok{background:#238636;color:#fff}.code{background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:14px;padding-right:80px;font-family:'Cascadia Code',monospace;font-size:12px;line-height:1.8;color:#c9d1d9;white-space:pre-wrap;word-wrap:break-word;outline:none;transition:border-color .2s}.code.editing{border-color:#a371f7;box-shadow:0 0 0 2px #a371f733;cursor:text}.cm{color:#8b949e}.kw{color:#ff7b72}.str{color:#a5d6ff}.fn{color:#d2a8ff}.vr{color:#ffa657}.ps{color:#6e7681}.vf{color:#3fb950;font-weight:700}.steps{list-style:none;padding:0}.steps li{display:flex;gap:10px;margin-bottom:8px;padding:10px;background:#0d1117;border-radius:8px;border:1px solid #21262d;transition:border-color .2s}.steps li.editing{border-color:#a371f7}.sn{min-width:26px;height:26px;background:#238636;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}.st{font-size:13px;color:#c9d1d9;outline:none}.st strong{color:#e6edf3}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}.card{background:#0d1117;border:1px solid #21262d;border-radius:8px;padding:10px}.card .lbl{font-size:10px;color:#8b949e;text-transform:uppercase;margin-bottom:2px}.card .val{font-size:12px;color:#e6edf3;font-family:monospace}details{margin:10px 0;background:#0d1117;border:1px solid #21262d;border-radius:8px}details summary{padding:10px 14px;cursor:pointer;font-size:13px;font-weight:500;color:#58a6ff}details .dc{padding:0 14px 14px}.tags{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 14px}.tags span{background:#1c2432;border:1px solid #30363d;border-radius:6px;padding:3px 10px;font-size:11px;color:#a5d6ff}.tip{background:#0d1117;border-left:3px solid #3fb950;border-radius:0 8px 8px 0;padding:10px 14px;margin:14px 0;font-size:12px;color:#c9d1d9}.tip b{color:#3fb950}.shell{display:inline-block;background:#0078d4;color:#fff;font-size:10px;font-weight:600;padding:2px 8px;border-radius:3px;margin-bottom:6px}.dl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}.dl-card{background:#0d1117;border:1px solid #21262d;border-radius:10px;padding:16px;transition:all .2s}.dl-card:hover{border-color:#58a6ff;transform:translateY(-2px)}.dl-card.editing{border-color:#a371f7}.dl-card .dl-icon{font-size:28px;margin-bottom:8px}.dl-card .dl-name{font-size:14px;font-weight:600;color:#e6edf3;margin-bottom:4px;outline:none}.dl-card .dl-desc{font-size:11px;color:#8b949e;margin-bottom:10px;line-height:1.4;outline:none}.dl-card .dl-link{display:inline-block;background:#238636;color:#fff;padding:5px 12px;border-radius:6px;font-size:11px;font-weight:600;text-decoration:none}.dl-card .dl-link:hover{background:#2ea043}.dl-card .dl-stage{display:inline-block;font-size:9px;font-weight:600;padding:2px 6px;border-radius:3px;margin-left:6px;background:#30363d;color:#8b949e}.dl-card .dl-size{font-size:10px;color:#484f58;margin-top:6px;outline:none}.dl-section{margin-bottom:20px}.dl-section-title{font-size:12px;font-weight:600;color:#a371f7;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #21262d}.dl-note{background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:12px 16px;margin-top:16px;font-size:12px;color:#8b949e;line-height:1.6;outline:none;transition:border-color .2s}.dl-note.editing{border-color:#a371f7}.dl-note b{color:#ffa657}.dl-checklist{list-style:none;padding:0;margin:14px 0}.dl-checklist li{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#0d1117;border:1px solid #21262d;border-radius:6px;margin-bottom:6px;font-size:12px;color:#c9d1d9}.dl-checklist .chk{width:18px;height:18px;border:2px solid #30363d;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#3fb950;cursor:pointer;flex-shrink:0}.dl-checklist .chk.done{background:#238636;border-color:#238636}.chk-text{outline:none}
+</style>
+</head>
+<body>
+
+<div class="header"><div class="badge-row"><span class="live-badge">● LIVE</span><span class="os-badge">⊞ WINDOWS 10/11</span></div><h1>Data Engineering Roadmap 2026</h1><p>Step-by-step Windows setup — Click each stage tab to follow along</p></div>
+
+
+
+<input type="radio" name="tabs" id="t0" checked=""><input type="radio" name="tabs" id="t1"><input type="radio" name="tabs" id="t2"><input type="radio" name="tabs" id="t3"><input type="radio" name="tabs" id="t4"><input type="radio" name="tabs" id="t5"><input type="radio" name="tabs" id="t6">
+<div class="tab-bar">
+<label for="t0"><span class="n">⬇</span>Downloads</label><label for="t1"><span class="n">1</span>SQL</label><label for="t2"><span class="n">2</span>Python</label><label for="t3"><span class="n">3</span>Data Warehousing</label><label for="t4"><span class="n">4</span>ETL</label><label for="t5"><span class="n">5</span>AWS</label><label for="t6"><span class="n">6</span>PySpark</label>
+</div>
+<div class="panels">
+
+<!-- DOWNLOADS -->
+<div class="panel p0">
+<div class="stg-hdr"><div class="stg-icon" style="background:#a371f733;color:#a371f7">📦</div><div><div class="stg-lbl">Pre-Session</div><div class="stg-title">Download Everything First</div><div class="stg-desc">Get all tools before the live session!</div></div></div>
+<div class="dl-section"><div class="dl-section-title">🔧 Core Tools</div>
+<div class="dl-grid">
+<div class="dl-card"><div class="dl-icon">🐘</div><div class="dl-name">PostgreSQL 16</div><div class="dl-desc">Database &amp; warehouse — Stage 1, 3, 4</div><a class="dl-link" href="https://www.postgresql.org/download/windows/" target="_blank">Download</a><span class="dl-stage">Stage 1,3,4</span><div class="dl-size">~300 MB • EDB Installer</div></div>
+<div class="dl-card"><div class="dl-icon">🐍</div><div class="dl-name">Python 3.11+</div><div class="dl-desc">⚠️ CHECK "Add to PATH" during install</div><a class="dl-link" href="https://www.python.org/downloads/" target="_blank">Download</a><span class="dl-stage">Stage 2-6</span><div class="dl-size">~30 MB • python.org</div></div>
+<div class="dl-card"><div class="dl-icon">🦫</div><div class="dl-name">DBeaver Community</div><div class="dl-desc">Free SQL GUI for all databases</div><a class="dl-link" href="https://dbeaver.io/download/" target="_blank">Download</a><span class="dl-stage">Stage 1,3</span><div class="dl-size">~115 MB • dbeaver.io</div></div>
+<div class="dl-card"><div class="dl-icon">📝</div><div class="dl-name">VS Code</div><div class="dl-desc">Code editor + Python extension</div><a class="dl-link" href="https://code.visualstudio.com/download" target="_blank">Download</a><span class="dl-stage">Stage 2-6</span><div class="dl-size">~95 MB • Microsoft</div></div>
+</div></div>
+<div class="dl-section"><div class="dl-section-title">☁️ Cloud &amp; Big Data</div>
+<div class="dl-grid">
+<div class="dl-card"><div class="dl-icon">☁️</div><div class="dl-name">AWS CLI v2</div><div class="dl-desc">CLI for S3, Glue, Athena</div><a class="dl-link" href="https://aws.amazon.com/cli/" target="_blank">Download</a><span class="dl-stage">Stage 5</span><div class="dl-size">~50 MB • MSI</div></div>
+<div class="dl-card"><div class="dl-icon">☕</div><div class="dl-name">Microsoft OpenJDK 11</div><div class="dl-desc">Free, Windows-optimized, auto-sets JAVA_HOME, no login needed</div><a class="dl-link" href="https://learn.microsoft.com/en-us/java/openjdk/download" target="_blank">Download</a><span class="dl-stage">Stage 6</span><div class="dl-size">~170 MB • Microsoft (.msi)</div></div>
+<div class="dl-card"><div class="dl-icon">🔧</div><div class="dl-name">winutils.exe</div><div class="dl-desc">Required for PySpark on Windows → C:\hadoop\bin\</div><a class="dl-link" href="https://github.com/steveloughran/winutils" target="_blank">Download</a><span class="dl-stage">Stage 6</span><div class="dl-size">~100 KB • GitHub</div></div>
+<div class="dl-card"><div class="dl-icon">🌐</div><div class="dl-name">AWS Free Tier</div><div class="dl-desc">S3, Glue, Athena access (credit card needed)</div><a class="dl-link" href="https://aws.amazon.com/free/" target="_blank">Sign Up</a><span class="dl-stage">Stage 5</span><div class="dl-size">Free • 12 months</div></div>
+</div></div>
+<div class="dl-section"><div class="dl-section-title">📦 Python Libraries</div>
+<div class="code-wrap"><div class="code" id="c01"><span class="cm"># After Python + venv activated</span>
+pip install pandas numpy sqlalchemy psycopg2-binary requests boto3 python-dotenv loguru schedule openpyxl pyarrow pyspark==3.5.1</div></div></div>
+<div class="dl-section"><div class="dl-section-title">✅ Pre-Session Checklist</div>
+<ul class="dl-checklist" id="checklist">
+<li><div class="chk" onclick="this.classList.toggle('done');this.textContent=this.classList.contains('done')?'✓':''"> </div><span class="chk-text">PostgreSQL running on port 5432</span></li>
+<li><div class="chk" onclick="this.classList.toggle('done');this.textContent=this.classList.contains('done')?'✓':''"> </div><span class="chk-text">Python 3.11+ added to PATH</span></li>
+<li><div class="chk" onclick="this.classList.toggle('done');this.textContent=this.classList.contains('done')?'✓':''"> </div><span class="chk-text">DBeaver connected to PostgreSQL</span></li>
+<li><div class="chk" onclick="this.classList.toggle('done');this.textContent=this.classList.contains('done')?'✓':''"> </div><span class="chk-text">VS Code + Python extension</span></li>
+<li><div class="chk" onclick="this.classList.toggle('done');this.textContent=this.classList.contains('done')?'✓':''"> </div><span class="chk-text">Venv created &amp; libraries installed</span></li>
+<li><div class="chk" onclick="this.classList.toggle('done');this.textContent=this.classList.contains('done')?'✓':''"> </div><span class="chk-text">AWS CLI configured (aws configure)</span></li>
+<li><div class="chk" onclick="this.classList.toggle('done');this.textContent=this.classList.contains('done')?'✓':''"> </div><span class="chk-text">Microsoft OpenJDK 11 &amp; JAVA_HOME set</span></li>
+<li><div class="chk" onclick="this.classList.toggle('done');this.textContent=this.classList.contains('done')?'✓':''"> </div><span class="chk-text">winutils.exe in C:\hadoop\bin\</span></li>
+<li><div class="chk" onclick="this.classList.toggle('done');this.textContent=this.classList.contains('done')?'✓':''"> </div><span class="chk-text">pyspark --version works</span></li>
+</ul></div>
+<div class="dl-note" id="dl-notes"><b>⚠️ Notes:</b><br>• Install order: PostgreSQL → Python → VS Code → DBeaver → AWS CLI → OpenJDK 11 → winutils<br>• Restart PowerShell after setting env variables<br>• Min: Windows 10/11, 8GB RAM, 10GB disk<br>• All tools FREE — no paid licenses needed<br>• Microsoft OpenJDK 11 auto-sets JAVA_HOME!</div>
+</div>
+
+<!-- STAGE 1: SQL -->
+<div class="panel p1">
+<div class="stg-hdr"><div class="stg-icon" style="background:#336791aa;color:#fff">🐘</div><div><div class="stg-lbl">Stage 1</div><div class="stg-title">SQL — PostgreSQL</div><div class="stg-desc">Foundation — querying &amp; managing relational databases</div></div></div>
+<div class="sec-title">Step-by-Step Setup</div>
+<ul class="steps" id="steps-1">
+<li class=""><div class="sn">1</div><div class="st"><strong>Download PostgreSQL</strong> — EDB installer from postgresql.org</div></li>
+<li class=""><div class="sn">2</div><div class="st"><strong>Run installer</strong> — Set password, keep port 5432</div></li>
+<li class=""><div class="sn">3</div><div class="st"><strong>Add to PATH</strong> — C:\Program Files\PostgreSQL\18\bin</div></li>
+<li class=""><div class="sn">4</div><div class="st"><strong>Install DBeaver</strong> — dbeaver.io (free SQL GUI)</div></li>
+<li class=""><div class="sn">5</div><div class="st"><strong>Connect DBeaver</strong> — PostgreSQL → localhost:5432</div></li>
+<li class=""><div class="sn">6</div><div class="st"><strong>Practice</strong> — JOINs, Window Functions, CTEs</div></li>
+</ul>
+<div class="sec-title">Installation</div><span class="shell">PowerShell (Admin)</span>
+<div class="code-wrap"><div class="code" id="c11"><font color="#8b949e" style="font-family: &quot;Cascadia Code&quot;, &quot;SF Mono&quot;, monospace;"># Step 1: Download installer from postgresql.org/download/windows
+# Run the .exe → Next → Set password → Port 5432 → Install
+  
+# Step 2: Add PostgreSQL to PATH
+#Open environment variables setup window and update PATH under system variables. Add new entry and provide path as: C:\Program Files\PostgreSQL\16\bin 
+  
+# Step 3: You can use pgAdmin 4 as GUI to run queries or Install DBeaver (SQL GUI)</font><div style="font-family: &quot;Cascadia Code&quot;, &quot;SF Mono&quot;, monospace;"><font color="#8b949e"># Step 4: Download DBeaver from https://dbeaver.io/download/ and follow instructions on installer window</font></div><div style="font-family: &quot;Cascadia Code&quot;, &quot;SF Mono&quot;, monospace;"><font color="#8b949e"># Step 5: Create connection to the postgresql using details:</font></div><div style="font-family: &quot;Cascadia Code&quot;, &quot;SF Mono&quot;, monospace;"><font color="#8b949e">   Host URL: jdbc:postgresql://localhost:5432/postgres</font></div><div style="font-family: &quot;Cascadia Code&quot;, &quot;SF Mono&quot;, monospace;"><font color="#8b949e">   Host localhost</font></div><div style="font-family: &quot;Cascadia Code&quot;, &quot;SF Mono&quot;, monospace;"><font color="#8b949e">   database: postgres</font></div><div style="font-family: &quot;Cascadia Code&quot;, &quot;SF Mono&quot;, monospace;"><font color="#8b949e">   username: postgres</font></div><div style="font-family: &quot;Cascadia Code&quot;, &quot;SF Mono&quot;, monospace;"><font color="#8b949e">   password: &lt;password created during setup&gt;
+   
+# ✅ VERIFY INSTALLATION
+PS&gt; psql --version
+PS&gt; psql -U postgres
+CREATE DATABASE dataeng_db;
+SELECT datname FROM pg_database;</font></div></div></div>
+<div class="grid"><div class="card"><div class="lbl">DDL</div><div class="val">CREATE, ALTER, DROP</div></div><div class="card"><div class="lbl">DML</div><div class="val">SELECT, INSERT, UPDATE</div></div><div class="card"><div class="lbl">Advanced</div><div class="val">Window Functions, CTEs</div></div><div class="card"><div class="lbl">Performance</div><div class="val">Indexes, EXPLAIN ANALYZE</div></div></div>
+<details><summary>▶ Practice Queries</summary><div class="dc"><div class="code-wrap"><div class="code" id="c12"><span class="cm">-- Window Function: Running total</span>
+<span class="kw">SELECT</span> order_date, amount,
+  <span class="fn">SUM</span>(amount) <span class="kw">OVER</span> (<span class="kw">ORDER BY</span> order_date) <span class="kw">AS</span> running_total
+<span class="kw">FROM</span> orders;
+
+<span class="cm">-- CTE: Top customers</span>
+<span class="kw">WITH</span> customer_revenue <span class="kw">AS</span> (
+  <span class="kw">SELECT</span> customer_id, <span class="fn">SUM</span>(amount) <span class="kw">AS</span> total
+  <span class="kw">FROM</span> orders <span class="kw">GROUP BY</span> customer_id
+)
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> customer_revenue
+<span class="kw">WHERE</span> total &gt; <span class="vr">10000</span> <span class="kw">ORDER BY</span> total <span class="kw">DESC</span>;</div></div></div></details>
+<div class="tip"><b>💡 Tip:</b> DBeaver supports all databases — one tool for everything.</div>
+</div>
+
+<!-- STAGE 2: PYTHON -->
+<div class="panel p2">
+<div class="stg-hdr"><div class="stg-icon" style="background:#3776ab33;color:#ffd43b">🐍</div><div><div class="stg-lbl">Stage 2</div><div class="stg-title">Python</div><div class="stg-desc">Data manipulation &amp; pipeline scripting</div></div></div>
+<div class="sec-title">Step-by-Step Setup</div>
+<ul class="steps" id="steps-2">
+<li class=""><div class="sn">1</div><div class="st"><strong>Download Python 3.11+</strong> — python.org⚠️ CHECK "Add to PATH"</div></li>
+<li class=""><div class="sn">2</div><div class="st"><strong>Verify</strong> — python --version, pip --version</div></li>
+<li class=""><div class="sn">3</div><div class="st"><strong>Create project</strong> — mkdir C:\Projects\data_engineering</div></li>
+<li class=""><div class="sn">4</div><div class="st"><strong>Virtual env</strong> — python -m venv .venv</div></li>
+<li class=""><div class="sn">5</div><div class="st"><strong>VS Code</strong> — Install + Python extension</div></li>
+<li class=""><div class="sn">6</div><div class="st"><strong>Libraries</strong> — pandas, numpy, sqlalchemy, boto3</div></li>
+</ul>
+<div class="sec-title">Installation</div><span class="shell">PowerShell</span>
+<div class="code-wrap"><div class="code" id="c21"><font color="#6e7681">#Downlaod the python package and install</font>
+
+<span class="cm"># ✅ VERIFY</span>
+<span class="ps">PS&gt;</span> <span class="vf">python --version</span>
+<span class="ps">PS&gt;</span> <span class="vf">pip --version</span>
+
+<span class="cm"># Project setup</span>
+<span class="ps">PS&gt;</span> mkdir <span class="str">C:\Projects\data_engineering</span>
+<span class="ps">PS&gt;</span> cd <span class="str">C:\Projects\data_engineering</span>
+<span class="ps">PS&gt;</span> python -m venv <span class="str">.venv</span>
+<span class="ps">PS&gt;</span> <span class="kw">.\.venv\Scripts\Activate.ps1</span>
+
+<span class="cm"># Fix policy error if needed</span>
+<span class="ps">PS&gt;</span> Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+<span class="cm"># Install libraries</span>
+<span class="ps">PS&gt;</span> pip install <span class="str">pandas numpy sqlalchemy psycopg2-binary requests boto3 python-dotenv loguru</span></div></div>
+<div class="grid"><div class="card"><div class="lbl">Data</div><div class="val">pandas, numpy</div></div><div class="card"><div class="lbl">Database</div><div class="val">sqlalchemy, psycopg2</div></div><div class="card"><div class="lbl">Cloud</div><div class="val">boto3, requests</div></div><div class="card"><div class="lbl">Utils</div><div class="val">loguru, dotenv</div></div></div>
+<div class="tip"><b>💡 Tip:</b> Use .\.venv\Scripts\Activate.ps1 on Windows (not source).</div>
+</div>
+
+<!-- STAGE 3: DATA WAREHOUSING -->
+<div class="panel p3">
+<div class="stg-hdr"><div class="stg-icon" style="background:#ffc10722;color:#ffc107">🏗️</div><div><div class="stg-lbl">Stage 3</div><div class="stg-title">Data Warehousing — PostgreSQL</div><div class="stg-desc">Medallion Architecture &amp; Star Schema</div></div></div>
+<div class="tags"><span>Uses PostgreSQL from Stage 1</span><span>No new install</span><span>Star Schema</span></div>
+<div class="sec-title">Step-by-Step Setup</div>
+<ul class="steps" id="steps-3">
+<li class=""><div class="sn">1</div><div class="st"><strong>Create DB</strong> — CREATE DATABASE data_warehouse;</div></li>
+<li class=""><div class="sn">2</div><div class="st"><strong>Create schemas</strong> — raw_layer, staging_layer, analytics_layer</div></li>
+<li class=""><div class="sn">3</div><div class="st"><strong>Dimensions</strong> — dim_customer, dim_product, dim_date</div></li>
+<li class=""><div class="sn">4</div><div class="st"><strong>Facts</strong> — fct_sales (FKs to dimensions)</div></li>
+<li class=""><div class="sn">5</div><div class="st"><strong>Load raw</strong> — COPY command for CSVs</div></li>
+<li class=""><div class="sn">6</div><div class="st"><strong>Transform</strong> — raw → staging → analytics</div></li>
+</ul>
+<div class="sec-title">Create Schemas</div><span class="shell">psql / DBeaver</span>
+<div class="code-wrap"><div class="code" id="c31"><span class="ps">PS&gt;</span> psql -U postgres
+<span class="kw">CREATE DATABASE</span> data_warehouse;
+\c data_warehouse
+
+<span class="cm">-- Medallion Architecture (Bronze → Silver → Gold)</span>
+<span class="kw">CREATE SCHEMA</span> raw_layer;       <span class="cm">-- Bronze</span>
+<span class="kw">CREATE SCHEMA</span> staging_layer;   <span class="cm">-- Silver</span>
+<span class="kw">CREATE SCHEMA</span> analytics_layer; <span class="cm">-- Gold</span>
+
+<span class="cm">-- ✅ VERIFY</span>
+<span class="vf">\dn</span></div></div>
+<div class="sec-title">Star Schema</div>
+<div class="code-wrap"><div class="code" id="c32"><span class="cm">-- DIMENSION TABLES</span>
+<span class="kw">CREATE TABLE</span> analytics_layer.dim_date (
+  );
+
+<span class="kw">CREATE TABLE</span> analytics_layer.dim_customer (
+);
+
+<span class="kw">CREATE TABLE</span> analytics_layer.dim_product (
+);
+
+<span class="cm">-- FACT TABLE</span>
+<span class="kw">CREATE TABLE</span> analytics_layer.fct_sales (
+);</div></div>
+<div class="sec-title">Load &amp; Transform</div>
+<div class="code-wrap"><div class="code" id="c33"><br></div></div>
+<div class="tip"><b>💡 Tip:</b> Use \copy for client-side loading. Partition large fact tables by date.</div>
+</div>
+
+<!-- STAGE 4: ETL -->
+<div class="panel p4">
+<div class="stg-hdr"><div class="stg-icon" style="background:#58a6ff22;color:#58a6ff">🔄</div><div><div class="stg-lbl">Stage 4</div><div class="stg-title">ETL — Extract, Transform, Load</div><div class="stg-desc">Python pipelines → PostgreSQL warehouse</div></div></div>
+<div class="sec-title">Step-by-Step Setup</div>
+<ul class="steps" id="steps-4">
+<li class=""><div class="sn">1</div><div class="st"><strong>Activate venv</strong> — .\.venv\Scripts\Activate.ps1</div></li>
+<li class=""><div class="sn">2</div><div class="st"><strong>Install</strong> — pandas, sqlalchemy, loguru, schedule</div></li>
+<li class=""><div class="sn">3</div><div class="st"><strong>Create pipeline</strong> — Extract → Transform → Load</div></li>
+<li class=""><div class="sn">4</div><div class="st"><strong>Test</strong> — python etl_pipeline.py</div></li>
+<li class=""><div class="sn">5</div><div class="st"><strong>Schedule</strong> — Windows Task Scheduler</div></li>
+</ul>
+<div class="sec-title">ETL Pipeline</div>
+<div class="code-wrap"><div class="code" id="c41"><br></div></div>
+<details open=""><summary>▶ Windows Task Scheduler</summary><div class="dc"><div class="code-wrap"><div class="code" id="c42"><br></div></div></div></details>
+<div class="tip"><b>💡 Tip:</b> Store credentials in .env file — never hardcode passwords!</div>
+</div>
+
+<!-- STAGE 5: AWS -->
+<div class="panel p5">
+<div class="stg-hdr"><div class="stg-icon" style="background:#ff990033;color:#ff9900">☁️</div><div><div class="stg-lbl">Stage 5</div><div class="stg-title">AWS — Cloud Platform</div><div class="stg-desc">S3, Glue, Athena for scalable data engineering</div></div></div>
+<div class="sec-title">Step-by-Step Setup</div>
+<ul class="steps" id="steps-5">
+<li class=""><div class="sn">1</div><div class="st"><strong>AWS account</strong> — aws.amazon.com (Free Tier)</div></li>
+<li class=""><div class="sn">2</div><div class="st"><strong>Install CLI</strong> — winget install Amazon.AWSCLI</div></li>
+<li class=""><div class="sn">3</div><div class="st"><strong>Configure</strong> — aws configure (keys + region)</div></li>
+<li class=""><div class="sn">4</div><div class="st"><strong>S3 bucket</strong> — aws s3 mb s3://my-data-lake-2026</div></li>
+<li class=""><div class="sn">5</div><div class="st"><strong>boto3</strong> — pip install boto3</div></li>
+<li class=""><div class="sn">6</div><div class="st"><strong>Test</strong> — Upload file to S3 via Python</div></li>
+</ul>
+<div class="sec-title">Installation</div><span class="shell">PowerShell (Admin)</span>
+<div class="code-wrap"><div class="code" id="c51"><span class="ps">PS&gt;</span> winget install <span class="str">Amazon.AWSCLI</span>
+<span class="ps">PS&gt;</span> <span class="vf">aws --version</span>
+
+<span class="cm"># Configure</span>
+<span class="ps">PS&gt;</span> aws configure
+<span class="cm"># Access Key: AKIA... | Secret: **** | Region: us-east-1</span>
+
+<span class="cm"># Create S3 bucket &amp; upload</span>
+<span class="ps">PS&gt;</span> aws s3 mb <span class="str">s3://my-data-lake-2026</span>
+<span class="ps">PS&gt;</span> aws s3 cp <span class="str">C:\Projects\data\</span> <span class="str">s3://my-data-lake-2026/raw/</span> --recursive
+
+<span class="ps">PS&gt;</span> pip install <span class="str">boto3</span></div></div>
+<div class="grid"><div class="card"><div class="lbl">Storage</div><div class="val">S3 (Data Lake)</div></div><div class="card"><div class="lbl">ETL</div><div class="val">AWS Glue</div></div><div class="card"><div class="lbl">Warehouse</div><div class="val">Redshift</div></div><div class="card"><div class="lbl">Query</div><div class="val">Athena (Serverless)</div></div></div>
+<div class="tip"><b>💡 Tip:</b> Credentials at C:\Users\You\.aws\credentials — NEVER commit to Git!</div>
+</div>
+
+<!-- STAGE 6: PYSPARK -->
+<div class="panel p6">
+<div class="stg-hdr"><div class="stg-icon" style="background:#e2571133;color:#ff6b35">⚡</div><div><div class="stg-lbl">Stage 6</div><div class="stg-title">PySpark — Big Data</div><div class="stg-desc">Distributed processing with Apache Spark</div></div></div>
+<div class="tags"><span>Microsoft OpenJDK 11</span><span>winutils.exe</span><span>8GB+ RAM</span></div>
+<div class="sec-title">Step-by-Step Setup</div>
+<ul class="steps" id="steps-6">
+<li class=""><div class="sn">1</div><div class="st"><strong>Install OpenJDK 11</strong> — winget install Microsoft.OpenJDK.11</div></li>
+<li class=""><div class="sn">2</div><div class="st"><strong>Verify JAVA_HOME</strong> — auto-set by MSI installer</div></li>
+<li class=""><div class="sn">3</div><div class="st"><strong>Install PySpark</strong> — pip install pyspark==3.5.1</div></li>
+<li class=""><div class="sn">4</div><div class="st"><strong>winutils.exe</strong> — Download → C:\hadoop\bin\</div></li>
+<li class=""><div class="sn">5</div><div class="st"><strong>HADOOP_HOME</strong> — Set to C:\hadoop</div></li>
+<li class=""><div class="sn">6</div><div class="st"><strong>Verify</strong> — Restart PS → pyspark --version</div></li>
+</ul>
+<div class="sec-title">Installation</div><span class="shell">PowerShell (Admin)</span>
+<div class="code-wrap"><div class="code" id="c61"><span class="cm"># Install Microsoft OpenJDK 11 (auto-sets JAVA_HOME!)</span>
+<span class="ps">PS&gt;</span> winget install <span class="str">Microsoft.OpenJDK.11</span>
+
+<span class="cm"># ✅ VERIFY (restart PowerShell!)</span>
+<span class="ps">PS&gt;</span> <span class="vf">java -version</span>
+<span class="cm"># → openjdk version "11.0.x" (Microsoft)</span>
+<span class="ps">PS&gt;</span> <span class="vf">echo $env:JAVA_HOME</span>
+
+<span class="cm"># Install PySpark</span>
+<span class="ps">PS&gt;</span> pip install <span class="str">pyspark==3.5.1</span>
+
+<span class="cm"># Hadoop setup</span>
+<span class="ps">PS&gt;</span> mkdir <span class="str">C:\hadoop\bin</span>
+<span class="cm"># Copy winutils.exe → C:\hadoop\bin\</span>
+<span class="ps">PS&gt;</span> [Environment]::SetEnvironmentVariable(<span class="str">"HADOOP_HOME"</span>, <span class="str">"C:\hadoop"</span>, <span class="str">"Machine"</span>)
+<span class="ps">PS&gt;</span> [Environment]::SetEnvironmentVariable(<span class="str">"Path"</span>, $env:Path + <span class="str">";C:\hadoop\bin"</span>, <span class="str">"Machine"</span>)<div><br><div><span style="color: rgb(139, 148, 158);"># You can also setup the environment variables through the window option as shown in the video</span>
+
+<span class="cm"># ✅ FINAL VERIFY</span>
+<span class="ps">PS&gt;</span> <span class="vf">pyspark --version</span></div></div></div></div>
+<div class="sec-title">PySpark Job</div>
+<div class="code-wrap"><div class="code" id="c62"><br></div></div>
+<div class="tip"><b>💡 Tip:</b> Use local[*] to use all CPU cores. Deploy to AWS EMR for production scale.</div>
+</div>
+
+</div><!-- end panels -->
+
+
+
+
+</body></html>
