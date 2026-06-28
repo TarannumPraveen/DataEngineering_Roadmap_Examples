@@ -239,7 +239,7 @@ code{font-family:'Cascadia Code','Fira Code',Consolas,monospace}
       </div>
     </details>
 
-    <details>
+    <details open="">
       <summary>📦 GROUP BY &amp; HAVING</summary>
       <div class="detail-body">
         <pre><code><span class="cm">-- Average salary per department</span>
@@ -270,7 +270,7 @@ id │ name  │ dept_id       dept_id │ avg_sal │ headcount
   <div class="section">
     <h2>Intermediate SQL <span class="badge badge-blue">Joins &amp; Subqueries</span></h2>
 
-    <details>
+    <details open="">
       <summary>🔗 JOIN Types</summary>
       <div class="detail-body">
 
@@ -404,7 +404,7 @@ id │ name  │ dept_id       dept_id │ avg_sal │ headcount
       </div>
     </details>
 
-    <details>
+    <details open="">
       <summary>🔀 Set Operators (UNION / INTERSECT / EXCEPT)</summary>
       <div class="detail-body">
         <pre><code><span class="cm">-- UNION: combine results, remove duplicates</span>
@@ -418,19 +418,19 @@ id │ name  │ dept_id       dept_id │ avg_sal │ headcount
 <span class="kw">SELECT</span> id, <span class="col">name</span> <span class="kw">FROM</span> <span class="tbl">employees2</span>;
 
 <span class="cm">-- INTERSECT: names appearing in BOTH tables</span>
-<span class="kw">SELECT</span> <span class="col">name</span> <span class="kw">FROM</span> <span class="tbl">employees_2024</span>
+<span class="kw">SELECT</span> <span class="col">name</span> <span class="kw">FROM</span> <span class="tbl">employees</span>
 <span class="kw">INTERSECT</span>
-<span class="kw">SELECT</span> <span class="col">name</span> <span class="kw">FROM</span> <span class="tbl">employees_2025</span>;
+<span class="kw">SELECT</span> <span class="col">name</span> <span class="kw">FROM</span> <span class="tbl">employees2</span>;
 
 <span class="cm">-- EXCEPT: names in 2024 but NOT in 2025 (left exits)</span>
-<span class="kw">SELECT</span> <span class="col">name</span> <span class="kw">FROM</span> <span class="tbl">employees_2024</span>
+<span class="kw">SELECT</span> <span class="col">name</span> <span class="kw">FROM</span> <span class="tbl">employees</span>
 <span class="kw">EXCEPT</span>
-<span class="kw">SELECT</span> <span class="col">name</span> <span class="kw">FROM</span> <span class="tbl">employees_2025</span>;</code></pre>
+<span class="kw">SELECT</span> <span class="col">name</span> <span class="kw">FROM</span> <span class="tbl">employees2</span>;</code></pre>
         <div class="tip"><strong>Rule:</strong> Both queries must have the same number of columns with compatible data types.</div>
       </div>
     </details>
 
-    <details>
+    <details open="">
       <summary>🔄 Subqueries</summary>
       <div class="detail-body">
         <pre><code><span class="cm">-- Scalar subquery: above-average earners</span>
@@ -459,7 +459,7 @@ Step 2 → Outer query uses that value:
       </div>
     </details>
 
-    <details>
+    <details open="">
       <summary>↩️ Correlated Subqueries</summary>
       <div class="detail-body">
         <pre><code><span class="cm">-- Each employee vs their own department average</span>
@@ -600,12 +600,10 @@ sale_date  │ revenue │ prev_rev │ next_rev │ day_over_day
 <span class="kw">FROM</span>   org_chart;</code></pre>
         <div class="diagram">
 <span class="h">Output — indented hierarchy:</span>
-CEO  (level 0)
-  VP Engineering  (level 1)
-    Alice          (level 2)
-    Carol          (level 2)
-  VP HR           (level 1)
-    Bob            (level 2)</div>
+  Alice          (level 1)
+    Bob             (level 2)
+    Carol           (level 2)
+    Dave            (level 2)</div>
       </div>
     </details>
 
